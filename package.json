@@ -1,0 +1,31 @@
+{
+  "name": "use-collection",
+  "version": "0.0.1",
+  "description": "Takes the pain out of managing stateful objects and arrays within your React components.",
+  "author": "Schalk Venter <venterschalk@gmail.com>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/schalkventer/use-collection",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "jest": "^25.4.0",
+    "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schalkventer/use-collection.git"
+  },
+  "bugs": {
+    "url": "https://github.com/schalkventer/use-collection/issues"
+  }
+}
