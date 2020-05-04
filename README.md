@@ -1,5 +1,7 @@
 # 🤹‍♂️ Use Collection
 
+![Unit Tests](https://github.com/schalkventer/use-collection/workflows/Unit%20Tests/badge.svg) ![NPM Package](https://github.com/schalkventer/use-collection/workflows/NPM%20Package/badge.svg)
+
 Takes the pain out of modifying stateful objects and arrays within your React components.
 
 - [Arguments](#shape)
