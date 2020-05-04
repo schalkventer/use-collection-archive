@@ -1,6 +1,6 @@
 # 🤹‍♂️ Use Collection
 
-A single React hook for managing objects and/or arrays within your components.
+Takes the pain out of modifying stateful objects and arrays within your React components.
 
 - [Arguments](#shape)
 - [Basic usage](#basic-usage)
