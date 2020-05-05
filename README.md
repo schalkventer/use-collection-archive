@@ -1,23 +1,46 @@
-# 🤹‍♂️ Use Collection
+# 🤹‍♂️ useCollection
 
 Takes the pain out of modifying stateful objects and arrays within your React components.
 
-- [Arguments](#shape)
-- [Basic usage](#basic-usage)
-- [TypeScript usage](#typescript-usage)
+![](docs/logo.png)
 
-## BArguments
+_Protip: Use [**Faker Enhanced**](https://www.npmjs.com/package/faker-enhanced) to generate mock data for your `useCollection` hooks_.
 
-**Default configurations** 
+## Table of Contents
+
+- [🤹‍♂️ useCollection](#%f0%9f%a4%b9%e2%80%8d%e2%99%82%ef%b8%8f-usecollection)
+  - [Table of Contents](#table-of-contents)
+  - [Why useCollection?](#why-usecollection)
+  - [Actions](#actions)
+    - [Add](#add)
+    - [Remove](#remove)
+    - [Update](#update)
+    - [Move](#move)
+    - [Reorder](#reorder)
+    - [Replace](#replace)
+  - [Configuration](#configuration)
+  - [Basic example](#basic-example)
+  - [TypeScript example](#typescript-example)
+
+## Why useCollection?
+
+_Section coming soon..._
+
+## Actions
+
+- [Add](#add)
+- [Remove](#remove)
+- [Update](#update)
+- [Move](#move)
+- [Reorder](#reorder)
+- [Replace](#replace)
 
 _Note that if you are using TypeScript you can pass the following generics:_
 
 - _`I`: The unique identifier type_
 - _`O`: the expected shape of the objects inside the collection (the specified identifier key is added automatically)_
 
-### Actions
-
-#### Add
+### Add
 
 ```ts
   (
@@ -26,25 +49,9 @@ _Note that if you are using TypeScript you can pass the following generics:_
   ) => void
 ```
 
-#### Reorder
+_Description coming soon..._
 
-```ts
-  (
-    command: { id: I, direction: 'ascending' | 'descending' } | (a: [I, O], b: [I, O]) => 0 | 1 | -1;
-  ) => void
-```
-
-#### Move
-
-```ts
-  (
-    from: number | { id: I },
-    to: number | { before: I } | { after: I }
-  ) => void;
-    
-```
-
-#### Remove
+### Remove
 
 ```ts
   (
@@ -53,7 +60,9 @@ _Note that if you are using TypeScript you can pass the following generics:_
   ) => void
 ```
 
-#### Update
+_Description coming soon..._
+
+### Update
 
 ```ts
   (
@@ -62,13 +71,38 @@ _Note that if you are using TypeScript you can pass the following generics:_
   ) => void;
 ```
 
-#### Replace
+_Description coming soon..._
+
+### Move
+
+```ts
+  (
+    from: number | { id: I },
+    to: number | { before: I } | { after: I }
+  ) => void;
+```
+
+_Description coming soon..._
+
+### Reorder
+
+```ts
+  (
+    command: { id: I, direction: 'ascending' | 'descending' } | (a: [I, O], b: [I, O]) => 0 | 1 | -1;
+  ) => void
+```
+
+_Description coming soon..._
+
+### Replace
 
 ```ts
   (newValues:? O[]) => void;
 ```
 
-### Initialise:
+_Description coming soon..._
+
+## Configuration
 
 ```ts
 useCollection<I extends string | number | symbol, O extends Record<I, O>>(
@@ -146,38 +180,38 @@ useCollection<I extends string | number | symbol, O extends Record<I, O>>(
 )
 ```
 
-## Basic usage:
+## Basic example
 
 ```js
 import { useCollection } from 'useCollection';
 
 const startingCollection = [{ id: 'c', value: 30 }, { id: 'e', value: 50 }];
-const [collection, collectionActions] = useCollection(startingCollection) /* { c: 30, e: 50 } */
+const [collection, collectionActions] = useCollection(startingCollection) /* { c: { id: 'c', value: 30 }, e: { id: 'e', value: 50 } } */
 
 
 collectionActions.add({ id: 'g', value: 70 }, 'end'); 
 
 /* 
  * { 
- *   c: { value: 30 }, 
- *   e: { value: 50 }, 
- *   g: { value: 70 }
+ *   c: { id: 'c', value: 30 }, 
+ *   e: { id: 'e', value: 50 }, 
+ *   g: { id: 'g', value: 70 }
  * } 
  */
 
 
 collectionActions.add(
-  [{ id: 'a', value: 10 }, { id: 'h', 80 }], 
+  [{ id: 'a', value: 10 }, { id: 'h', value: 80 }], 
   'start'
 ); 
 
 /* 
  * { 
- *   a: { value: 10 },
- *   h: { value: 80 }
- *   c: { value: 30 }, 
- *   e: { value: 50 }, 
- *   g: { value: 70 }
+ *   a: { id: "a", value: 10 },
+ *   h: { id: "h", value: 80 },
+ *   c: { id: "c", value: 30 },
+ *   e: { id: "e", value: 50 },
+ *   g: { id: "g", value: 70 },
  * } 
  */
 
@@ -189,12 +223,12 @@ collectionActions.add(
 
 /* 
  * { 
- *   a: { value: 10 },
- *   b: { value: 20 }
- *   h: { value: 80 }
- *   c: { value: 30 }, 
- *   e: { value: 50 }, 
- *   g: { value: 70 }
+ *   a: { id: "a", value: 10 },
+ *   b: { id: 'b', value: 20 },
+ *   h: { id: "h", value: 80 },
+ *   c: { id: "c", value: 30 },
+ *   e: { id: "e", value: 50 },
+ *   g: { id: "g", value: 70 },
  * } 
  */
 
@@ -206,13 +240,13 @@ collectionActions.add(
 
 /* 
  * { 
- *   a: { value: 10 },
- *   b: { value: 20 }
- *   h: { value: 80 }
- *   c: { value: 30 }, 
- *   d: { value: 40 }, 
- *   e: { value: 50 }, 
- *   g: { value: 70 }
+ *   a: { id: "a", value: 10 },
+ *   b: { id: "b", value: 20 },
+ *   h: { id: "h", value: 80 },
+ *   c: { id: "c", value: 30 }, 
+ *   d: { id: "d", value: 40 }, 
+ *   e: { id: "e", value: 50 }, 
+ *   g: { id: "g", value: 70 }
  * } 
  */
 
@@ -224,30 +258,32 @@ collectionActions.add(
 
 /* 
  * { 
- *   a: { value: 10 },
- *   b: { value: 20 }
- *   h: { value: 80 }
- *   c: { value: 30 }, 
- *   d: { value: 40 }, 
- *   e: { value: 50 }, 
- *   f: { value: 60 }, 
- *   g: { value: 70 }
+ * { 
+ *   a: { id: "a", value: 10 },
+ *   b: { id: "b", value: 20 },
+ *   h: { id: "h", value: 80 },
+ *   c: { id: "c", value: 30 }, 
+ *   d: { id: "d", value: 40 }, 
+ *   e: { id: "e", value: 50 }, 
+ *   f: { id: "f", value: 60 }, 
+ *   g: { id: "g", value: 70 }
+ * } 
  * } 
  */
 
 
-collectionActions.reorder('id', 'ascending');
+collectionActions.reorder({ key: 'id', direction: 'ascending' });
 
 /* 
  * { 
- *   a: { value: 10 },
- *   b: { value: 20 }
- *   c: { value: 30 }, 
- *   d: { value: 40 }, 
- *   e: { value: 50 }, 
- *   f: { value: 60 }, 
- *   g: { value: 70 }
- *   h: { value: 80 }
+ *   a: { id: "a", value: 10 },
+ *   b: { id: 'b', value: 20 },
+ *   c: { id: "c", value: 30 },
+ *   d: { id: "d", value: 40 },
+ *   e: { id: "e", value: 50 },
+ *   f: { id: "f", value: 60 },
+ *   g: { id: "g", value: 70 },
+ *   h: { id: "h", value: 80 },
  * } 
  */
 
@@ -256,14 +292,14 @@ collectionActions.reorder('value', 'descending');
 
 /* 
  * { 
- *   h: { value: 80 }
- *   g: { value: 70 }
- *   f: { value: 60 }, 
- *   e: { value: 50 }, 
- *   d: { value: 40 }, 
- *   c: { value: 30 }, 
- *   b: { value: 20 }
- *   a: { value: 10 },
+ *   h: { id: "h", value: 80 },
+ *   g: { id: "g", value: 70 },
+ *   f: { id: "f", value: 60 },
+ *   e: { id: "e", value: 50 },
+ *   d: { id: "d", value: 40 },
+ *   c: { id: "c", value: 30 },
+ *   b: { id: 'b', value: 20 },
+ *   a: { id: "a", value: 10 },
  * } 
  */
 
@@ -273,7 +309,7 @@ collectionActions.reorder((a, b) => {
     return -1;
   }
 
-  if (a.value % 20 === 0) {
+  if (a.values.value % 20 === 0) {
     return -1;
   }
 
@@ -282,30 +318,30 @@ collectionActions.reorder((a, b) => {
 
 /* 
  * { 
- *   e: { value: 50 }
- *   h: { value: 80 }, 
- *   f: { value: 60 }, 
- *   d: { value: 40 }, 
- *   b: { value: 20 }, 
- *   g: { value: 70 }
- *   c: { value: 30 },
- *   a: { value: 10 },
+ *   e: { id: "e", value: 50 },
+ *   h: { id: "h", value: 80 },
+ *   f: { id: "f", value: 60 },
+ *   d: { id: "d", value: 40 },
+ *   b: { id: "b", value: 20 },
+ *   g: { id: "g", value: 70 },
+ *   c: { id: "c", value: 30 },
+ *   a: { id: "a", value: 10 },
  * } 
  */
 
 
-collectionActions.move({ id: 'e'}, {index: 4 })
+collectionActions.move({ id: 'e'}, 4)
 
 /* 
  * { 
- *   e: { value: 50 }
- *   f: { value: 60 }, 
- *   d: { value: 40 }, 
- *   b: { value: 20 }, 
- *   h: { value: 80 }, 
- *   g: { value: 70 }
- *   c: { value: 30 },
- *   a: { value: 10 },
+ *   e: { id: "e", value: 50 },
+ *   f: { id: "f", value: 60 },
+ *   d: { id: "d", value: 40 },
+ *   b: { id: "b", value: 20 },
+ *   h: { id: "h", value: 80 },
+ *   g: { id: "g", value: 70 },
+ *   c: { id: "c", value: 30 },
+ *   a: { id: "a", value: 10 },
  * } 
  */
 
@@ -454,7 +490,7 @@ collectionActions.replace(startingCollection);
  */
 ```
 
-## TypeScript usage
+## TypeScript example
 
 ```ts
 import { useCollection, Array, Object, Actions, Props } from 'useCollection';
