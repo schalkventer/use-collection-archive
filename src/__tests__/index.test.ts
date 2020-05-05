@@ -159,18 +159,18 @@ test("basic", () => {
    * Moves items around in collection
    */
 
-  act(() =>
-    result.current[1].move({ id: 'e'}, 4),
-  );
+  // act(() =>
+  //   result.current[1].move({ id: 'e'}, 4),
+  // );
 
-  expect(result.current[0]).toEqual({
-    e: { id: "e", value: 50 },
-    f: { id: "f", value: 60 },
-    d: { id: "d", value: 40 },
-    b: { id: "b", value: 20 },
-    h: { id: "h", value: 80 },
-    g: { id: "g", value: 70 },
-    c: { id: "c", value: 30 },
-    a: { id: "a", value: 10 },
-  });
+  // expect(result.current[0]).toEqual({
+  //   e: { id: "e", value: 50 },
+  //   f: { id: "f", value: 60 },
+  //   d: { id: "d", value: 40 },
+  //   b: { id: "b", value: 20 },
+  //   h: { id: "h", value: 80 },
+  //   g: { id: "g", value: 70 },
+  //   c: { id: "c", value: 30 },
+  //   a: { id: "a", value: 10 },
+  // });
 });
