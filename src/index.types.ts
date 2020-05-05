@@ -13,62 +13,61 @@ export type StartingValues<I extends string | number | symbol, O extends Record<
    * (optionally) be passed to the collection during initialisation.
    */
 export interface Config<I extends string | number | symbol, O extends Record<string | number | symbol, any>> {
-    /**
-     * Determines whether the collection is returned to the client-side 
-     * as an array or object.
-     * 
-     * @default 'object'
-     */
-    transformer: 'object' | 'array'; 
+  /**
+   * Determines whether the collection is returned to the client-side 
+   * as an array or object.
+   * 
+   * @default 'object'
+   */
+  transformer: 'object' | 'array'; 
 
-    /**
-     * Designates the unique identifier key that is used in the collection.
-     * 
-     * @default 'id'
-     */
-    identifier?: string;
+  /**
+   * Designates the unique identifier key that is used in the collection.
+   * 
+   * @default 'id'
+   */
+  identifier?: string;
 
-    /**
-     * Automatically creates an UUID as an identifier when an 
-     * item is added without the identifier key.
-     * 
-     * @default false
-     */
-    autoId?: boolean;
+  /**
+   * Automatically creates an UUID as an identifier when an 
+   * item is added without the identifier key.
+   * 
+   * @default false
+   */
+  autoId?: boolean;
 
-    /**
-     * A handler that catches the error thrown when you are adding an item 
-     * that already exists in the collection. The returned object 
-     * from the function is then used instead.
-     * 
-     * Note that if `null` is returned nothing happens.
-     * 
-     * @example: (type, value, id) => {
-     *  if (type === 'exists') {
-     *    return {
-     *       ...value,
-     *       id: `${id}-${new Date().getTime()})`
-     *    }
-     *  }
-     * }
-     */
-    handleDuplicate: (value?: O, id?: I) => O | null
-    
+  /**
+   * A handler that catches the error thrown when you are adding an item 
+   * that already exists in the collection. The returned object 
+   * from the function is then used instead.
+   * 
+   * Note that if `null` is returned nothing happens.
+   * 
+   * @example: (type, value, id) => {
+   *  if (type === 'exists') {
+   *    return {
+   *       ...value,
+   *       id: `${id}-${new Date().getTime()})`
+   *    }
+   *  }
+   * }
+   */
+  handleDuplicate: (value?: O, id?: I) => O | null
+  
 
-    /**
-     * A handler that catches the error thrown when you are trying to
-     * update/remove and item that does not exist. The returned id is 
-     * then used instead.
-     * 
-     * Note that if `null` is returned then nothing happens.
-     * 
-     * @example: (type, value, id) => {
-     *  if (type === 'remove') {
-     *    return /\w+/(?=\-)/i.replace('');
-     *  }
-     */
-    handleMissing?: (type: 'remove' | 'update', value?: O, id?: I) => O | null
-  }
+  /**
+   * A handler that catches the error thrown when you are trying to
+   * update/remove and item that does not exist. The returned id is 
+   * then used instead.
+   * 
+   * Note that if `null` is returned then nothing happens.
+   * 
+   * @example: (type, value, id) => {
+   *  if (type === 'remove') {
+   *    return /\w+/(?=\-)/i.replace('');
+   *  }
+   */
+  handleMissing?: (type: 'remove' | 'update', value?: O, id?: I) => O | null
 }
 
 export interface Actions<I extends string | number | symbol, O extends Record<string | number | symbol, any>> {

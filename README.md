@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # 🤹‍♂️ useCollection
 
 ![Unit Tests](https://github.com/schalkventer/use-collection/workflows/Unit%20Tests/badge.svg) ![NPM Package](https://github.com/schalkventer/use-collection/workflows/NPM%20Package/badge.svg)
@@ -8,21 +9,14 @@ Takes the pain out of modifying stateful objects and arrays within your React co
 
 _Protip: Use [**Faker Enhanced**](https://www.npmjs.com/package/faker-enhanced) to generate mock data for your `useCollection` hooks_.
 
+<!-- omit in toc -->
 ## Table of Contents
 
-- [🤹‍♂️ useCollection](#%f0%9f%a4%b9%e2%80%8d%e2%99%82%ef%b8%8f-usecollection)
-  - [Table of Contents](#table-of-contents)
-  - [Why useCollection?](#why-usecollection)
-  - [Actions](#actions)
-    - [Add](#add)
-    - [Remove](#remove)
-    - [Update](#update)
-    - [Move](#move)
-    - [Reorder](#reorder)
-    - [Replace](#replace)
-  - [Configuration](#configuration)
-  - [Basic example](#basic-example)
-  - [TypeScript example](#typescript-example)
+- [Why useCollection?](#why-usecollection)
+- [Actions](#actions)
+- [Configuration](#configuration)
+- [Basic example](#basic-example)
+- [TypeScript example](#typescript-example)
 
 ## Why useCollection?
 
@@ -30,18 +24,18 @@ _Section coming soon..._
 
 ## Actions
 
-- [Add](#add)
-- [Remove](#remove)
-- [Update](#update)
-- [Move](#move)
-- [Reorder](#reorder)
-- [Replace](#replace)
+- [Why useCollection?](#why-usecollection)
+- [Actions](#actions)
+- [Configuration](#configuration)
+- [Basic example](#basic-example)
+- [TypeScript example](#typescript-example)
 
 _Note that if you are using TypeScript you can pass the following generics:_
 
 - _`I`: The unique identifier type_
 - _`O`: the expected shape of the objects inside the collection (the specified identifier key is added automatically)_
 
+<!-- omit in toc -->
 ### Add
 
 ```ts
@@ -53,6 +47,7 @@ _Note that if you are using TypeScript you can pass the following generics:_
 
 _Description coming soon..._
 
+<!-- omit in toc -->
 ### Remove
 
 ```ts
@@ -64,6 +59,7 @@ _Description coming soon..._
 
 _Description coming soon..._
 
+<!-- omit in toc -->
 ### Update
 
 ```ts
@@ -75,6 +71,7 @@ _Description coming soon..._
 
 _Description coming soon..._
 
+<!-- omit in toc -->
 ### Move
 
 ```ts
@@ -86,6 +83,7 @@ _Description coming soon..._
 
 _Description coming soon..._
 
+<!-- omit in toc -->
 ### Reorder
 
 ```ts
@@ -96,6 +94,7 @@ _Description coming soon..._
 
 _Description coming soon..._
 
+<!-- omit in toc -->
 ### Replace
 
 ```ts
