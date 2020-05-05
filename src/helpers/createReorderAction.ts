@@ -25,7 +25,22 @@ export const createReorderAction = <
   
     const commandAsObject = command as { key: string, direction: 'ascending' | 'descending' };
     const { key, direction } = command;
-    const result = collection.sort((a, b) => a[key].localeCompare(b[key]))
+
+    const result = collection.sort((a, b) => {
+      if (typeof a[key] === 'string') {
+        return a[key].localeCompare(b[key])
+      }
+
+      if (a < b) {
+        return -1;
+      }
+
+      if (a > b) {
+        return 1;
+      }
+
+      return 0;
+    })
   
     if (direction === 'ascending') {
       setCollection(result);

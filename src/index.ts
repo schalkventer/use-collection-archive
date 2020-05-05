@@ -46,7 +46,7 @@ export const useCollection = <I extends string | number | symbol, O extends Reco
   if (transformer === 'object') {
     return [
       collection.reduce(
-        (result, object) => ({ ...result, [object.key]: object, }),
+        (result, object) => ({ ...result, [object[identifier]]: object, }),
         {},
       ),
       actions,
