@@ -19,7 +19,7 @@ export interface Config<I extends string | number | symbol, O extends Record<str
    * 
    * @default 'object'
    */
-  transformer: 'object' | 'array'; 
+  transformer?: 'object' | 'array'; 
 
   /**
    * Designates the unique identifier key that is used in the collection.
@@ -52,7 +52,7 @@ export interface Config<I extends string | number | symbol, O extends Record<str
    *  }
    * }
    */
-  handleDuplicate: (value?: O, id?: I) => O | null
+  handleDuplicate?: (value?: O, id?: I) => O | null
   
 
   /**

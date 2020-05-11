@@ -1,6 +1,6 @@
 {
   "name": "use-collection",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Takes the pain out of managing stateful objects and arrays within your React components.",
   "author": "Schalk Venter <venterschalk@gmail.com>",
   "license": "ISC",
