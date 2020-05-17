@@ -1,5 +1,5 @@
   /**
-   * The values that the collection starts with when intialisied.
+   * The values that the collection starts with when initialisied.
    * 
    * @example [{ id: 'c', value: 30 }, { id: 'e', value: 50 }]
    * @example { c: { value: 30 }, e: { value: 50 }}
