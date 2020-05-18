@@ -12,12 +12,15 @@ export const createRemoveAction = <
         ...collection.slice(0, target),
         ...collection.slice(target + 1),
       ])
+
+      return;
     }
   
     if (typeof target !== 'function') {
       const targetAsObject = target as { id: string | number | symbol };
       const result = collection.filter((object) => object[identifier] !== targetAsObject.id)
       setCollection(result);
+      return;
     }
   
     let counter = 0;
